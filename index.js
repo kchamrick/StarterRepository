@@ -37,23 +37,38 @@ console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  // TODO
+  //create variable count and initialize to 0
+  let count = 0;
+  //loop over array and increment count by one for each item in numbers[]
+  //for (let i = 0; i < numbers.length; i++) {
+  // count +=1;
+  //}
+  // Return count
+  //return count;
+  //Refined version:
+  return numbers.length;
 }
 
-/**
+/** //
  * @param {number[]} numbers an array of integers
  * @returns {number} the sum of the numbers
  */
-function getSum(numbers) {
-  // TODO
-}
+  function getSum(numbers) {
+    //initialize a variable total to 0
+    let total = 0
+    //loop through numbers[] and add each element in that array to total
+    for (let i = 0; i < numbers.length; i++) {
+      total += numbers[i];
+    }
+    return total;
+  }
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
-  // TODO
+  getSum(numbers) / getLength(numbers);
 }
 
 /**
@@ -61,7 +76,17 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  // TODO
+  // initialize min to the first element of numbers
+  let min = numbers[0];
+  //loop through the rest of the numbers and make comparison and update as needed
+  for (let i = 1; i < numbers.length; i++) {
+    //if current number – that is, numbers[i] – is less than min, set min = numbers[i]
+    if (numbers[i] < min) {
+      min = numbers[i];
+    }
+  }
+  //after loop, return min
+  return min;
 }
 
 /**
@@ -69,7 +94,17 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  // TODO
+// initialize max to the first element of numbers
+let max = numbers[0];
+// loop through the rest of the numbers and make comparisons to update max
+for (let i = 1; i < numbers.length; i++) {
+  //if current number – that is, numbers[i] – is greater than max, update max
+  if (numbers[i] > max) {
+    max = numbers[i];
+    //after the loop, return max
+  }
+}
+return max;
 }
 
 /**
@@ -77,7 +112,7 @@ function getMax(numbers) {
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  // TODO
+  return getMax(numbers) - getMin(numbers); 
 }
 
 /**
@@ -85,7 +120,15 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  // TODO
+//Declare a var evens and initialize to []
+const evens = [];
+//loop through the array, check the parity of each element and if it is even, push to evens
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] % 2 === 0); {
+    evens.push(numbers[i]);
+  }
+}
+return evens;
 }
 
 /**
@@ -93,5 +136,13 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  // TODO
+//Declare a var odds and initialize to []
+const odds = [];
+//loop through the array, check the parity of each element and if it is odd, push to odd
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] % 2 !==0) {
+    odds.push(numbers[i]);
+  }
+}
+return odds;
 }
